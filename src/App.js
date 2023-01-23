@@ -1,23 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import './materialize.min.css';
 
-function App() {
+// let tasks = [];
+
+const addTask = (props) => {
+  console.log(props);
+};
+
+// let currentInput = '';
+const handleInput = change => {
+  let inputText = change.target.value;
+  setInputText(inputText);
+  
+}
+
+const App = props => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <div className="tasks" onSubmit={addTask}>
+        <div className="tasks-input">
+          <input onInput={handleInput} type="text" />
+          <button onClick={addTask} className="waves-effect waves-light btn tasks-input__submit">Add tasks</button>
+        </div>
+
+        <div className="tasks-list">
+          <p className="tasks-list__item">Tasklisk</p>
+        </div>
+      </div>
+
     </div>
   );
 }
